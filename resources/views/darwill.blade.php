@@ -16,8 +16,8 @@
         <li class="list-group-item">Host: Heroku</li>
     </ul>
 
-    <hr>
-    <h6 style="text-align: right;" class="display-6 fst-italic">Developed by: Joseph Castellon</h6>
+    {{-- <hr>
+    <h6 style="text-align: right;" class="display-6 fst-italic">Developed by: Joseph Castellon</h6> --}}
 
     </div>
 @endsection

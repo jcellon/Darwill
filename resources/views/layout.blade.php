@@ -20,6 +20,8 @@
         <div style="padding-bottom: 25px;"></div>
         <div class="container">
             @yield('content')
+                <hr>
+                <h6 style="text-align: right;" class="display-6 fst-italic">Developed by: <span style="color: teal">Joseph Castellon</span></h6>
         </div>
 
 </body>
