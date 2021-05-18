@@ -10,7 +10,7 @@ class DarwillController extends Controller
 {
     public function index()
     {
-        $title = 'Darwill Application';
+        $title = 'Darwill Application Environments';
         return view('darwill')->with('title', $title);
     }
     public function territory()
