@@ -31,7 +31,8 @@ class DarwillController extends Controller
     {
         $title = 'Query One';
         $datas = DB::select(
-            'select distinct any_value(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id'
+            // 'select distinct any_value(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id'
+            'select distinct owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id'
         );
 
         return view('queryOne', ['datas' => $datas])->with('title', $title);
