@@ -32,7 +32,7 @@ class DarwillController extends Controller
         $title = 'Query One';
         $datas = DB::select(
             // 'select distinct any_value(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id' //mysql
-            'select distinct max(owner_id), office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id' //postgres
+            'select distinct max(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id' //postgres
         );
 
         return view('queryOne', ['datas' => $datas])->with('title', $title);
