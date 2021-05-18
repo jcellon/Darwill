@@ -31,8 +31,8 @@ class DarwillController extends Controller
     {
         $title = 'Query One';
         $datas = DB::select(
-            // 'select distinct any_value(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id'
-            'select distinct max(owner_id), office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id'
+            // 'select distinct any_value(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id' //mysql
+            'select distinct max(owner_id), office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id' //postgres
         );
 
         return view('queryOne', ['datas' => $datas])->with('title', $title);
@@ -50,7 +50,8 @@ class DarwillController extends Controller
     {
         $title = 'Query Three';
         $datas = DB::select(
-            'select count(distinct ct.customer_lastname) as customer_lastname, any_value(ot.owner_id) as owner_id, any_value(ot.office_id) as office_id from office_territories ot inner join customers ct on ot.office_id = ct.assigned_office_id group by ct.customer_lastname'
+            // 'select count(distinct ct.customer_lastname) as customer_lastname, any_value(ot.owner_id) as owner_id, any_value(ot.office_id) as office_id from office_territories ot inner join customers ct on ot.office_id = ct.assigned_office_id group by ct.customer_lastname' //mysql
+            'select count(distinct ct.customer_lastname) as customer_lastname, max(ot.owner_id) as owner_id, max(ot.office_id) as office_id from office_territories ot inner join customers ct on ot.office_id = ct.assigned_office_id group by ct.customer_lastname' //postgres
         );
 
         return view('queryThree', ['datas' => $datas])->with('title', $title);
@@ -59,7 +60,8 @@ class DarwillController extends Controller
     {
         $title = 'Query Four';
         $datas = DB::select(
-            'select count(ct.customer_lastname) as customer_lastname, any_value(ct.assigned_office_id) as assigned_office_id from office_territories ot right join customers ct on ot.office_id = ct.assigned_office_id WHERE ot.owner_id is null and ot.office_id is null group by ct.customer_lastname'
+            // 'select count(ct.customer_lastname) as customer_lastname, any_value(ct.assigned_office_id) as assigned_office_id from office_territories ot right join customers ct on ot.office_id = ct.assigned_office_id WHERE ot.owner_id is null and ot.office_id is null group by ct.customer_lastname'
+            'select count(ct.customer_lastname) as customer_lastname, max(ct.assigned_office_id) as assigned_office_id from office_territories ot right join customers ct on ot.office_id = ct.assigned_office_id WHERE ot.owner_id is null and ot.office_id is null group by ct.customer_lastname'
         );
 
         return view('queryFour', ['datas' => $datas])->with('title', $title);
