@@ -26,7 +26,9 @@
             @endforeach
         </table>
     </div>
-            
 
+    <div class="alert alert-primary" role="alert">
+        <samp>select ot.assigned_zipcode, ot.office_id, ct.assigned_office_id from office_territories ot inner join customers ct on ot.assigned_zipcode = ct.customer_zipcode</samp>
+    </div>
 
 @endsection

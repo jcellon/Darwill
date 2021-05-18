@@ -26,9 +26,11 @@
                 </tr>
             </tbody>
             @endforeach
-        </table>
+        </table>        
     </div>
-            
 
+    <div class="alert alert-primary" role="alert">
+        <samp>select distinct max(owner_id) as owner_id, office_id, count(assigned_zipcode) as assigned_zipcode from office_territories group by office_id</samp>
+    </div>          
 
 @endsection
