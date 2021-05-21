@@ -24,3 +24,4 @@ Route::get('/queryOne', 'DarwillController@queryOne');
 Route::get('/queryTwo', 'DarwillController@queryTwo');
 Route::get('/queryThree', 'DarwillController@queryThree');
 Route::get('/queryFour', 'DarwillController@queryFour');
+Route::get('/charts', 'HighchartController@index');
