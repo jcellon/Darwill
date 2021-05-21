@@ -13,6 +13,7 @@
         <li class="list-group-item">MySQL 8.0.21</li>
         <li class="list-group-item">Apache 2.4.46</li>
         <li class="list-group-item">Data Store: PostgreSQL</li>
+        <li class="list-group-item">DB Admin: PostgreAdmin</li>
         <li class="list-group-item">Host: Heroku</li>
     </ul>
 
